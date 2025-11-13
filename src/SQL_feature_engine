@@ -1,0 +1,16 @@
+-- Расчет коэффициента агрессии игрока
+SELECT 
+    player_id,
+    (COUNT(CASE WHEN action_type = 'pvp_kill' THEN 1 END) * 100.0 / 
+     GREATEST(COUNT(*), 1)) as aggression_coef
+FROM player_actions 
+GROUP BY player_id;
+
+-- Предпочтения по жанрам
+SELECT 
+    player_id,
+    genre_id,
+    SUM(EXTRACT(EPOCH FROM (end_time - start_time))) as total_play_time
+FROM game_sessions gs
+JOIN games g ON gs.game_id = g.game_id
+GROUP BY player_id, genre_id;
