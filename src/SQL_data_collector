@@ -1,0 +1,8 @@
+-- Вставка новой игровой сессии
+INSERT INTO game_sessions (session_id, player_id, game_id, start_time) 
+VALUES ($1, $2, $3, $4);
+
+-- Получение статистики по игроку
+SELECT COUNT(*), AVG(session_duration) 
+FROM game_sessions 
+WHERE player_id = $1 AND start_time > NOW() - INTERVAL '30 days';
