@@ -1,0 +1,18 @@
+-- Отчет по эффективности рекомендаций
+SELECT 
+    DATE(created_at) as date,
+    COUNT(*) as total_recommendations,
+    AVG(click_rate) as avg_click_rate,
+    AVG(conversion_rate) as avg_conversion
+FROM recommendations 
+WHERE created_at >= CURRENT_DATE - INTERVAL '7 days'
+GROUP BY DATE(created_at);
+
+-- Статистика по игровым сессиям
+SELECT 
+    genre_id,
+    COUNT(DISTINCT player_id) as unique_players,
+    AVG(session_duration) as avg_session_time
+FROM game_sessions gs
+JOIN games g ON gs.game_id = g.game_id
+GROUP BY genre_id;
