@@ -1,0 +1,4 @@
+class MonitoringService:
+    def collect_system_metrics(self) -> SystemMetrics        # Системные метрики
+    def log_recommendation_quality(self) -> QualityMetrics   # Качество рекомендаций
+    def generate_alert(self) -> AlertNotification            # Генерация оповещений
