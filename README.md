@@ -258,8 +258,6 @@ streamlit run app.py
 
 ---
 
-> 📝 **Примечание:** Низкие абсолютные значения Precision/Recall обусловлены огромным размером каталога (34,161 игр). Модель PMF превосходит случайное угадывание в **18 раз**.
-
 ---
 
 ## 🌐 Веб-интерфейс
@@ -310,11 +308,7 @@ streamlit run app.py
 
 ---
 
-## 📧 Контакты
 
-**Автор:** [Ваше имя]  
-**Email:** your.email@example.com  
-**GitHub:** [@yourusername](https://github.com/yourusername)
 
 ---
 
