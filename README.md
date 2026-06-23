@@ -126,3 +126,59 @@ python -m venv .venv
 # Linux/macOS
 python3 -m venv .venv
 source .venv/bin/activate
+# 🎮 Steam Recommender System
+
+<div align="center">
+
+![Python](https://img.shields.io/badge/Python-3.10+-blue?logo=python)
+![PySpark](https://img.shields.io/badge/PySpark-3.5+-E25A1C?logo=apache-spark)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?logo=pytorch)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-FF4B4B?logo=streamlit)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+**Интеллектуальная гибридная рекомендательная система компьютерных игр на основе Steam API**
+
+</div>
+
+---
+
+## 📖 О проекте
+
+**Steam Recommender System** — программный комплекс гибридной рекомендательной системы, разработанный в рамках выпускной квалификационной работы. Система анализирует поведение пользователей Steam и рекомендует игры на основе комбинации коллаборативной фильтрации, контентного анализа и глубокого обучения.
+
+### 🎯 Цель проекта
+Разработать и сравнить несколько подходов к рекомендации игр:
+- **Content-Based Filtering** — на основе жанров и тегов игр
+- **Matrix Factorization (PMF)** — вероятностная матричная факторизация
+- **Two-Tower Model (NeuMF)** — двухбашенная нейронная сеть
+- **LightGCN** — графовая нейронная сеть
+- **Гибридная модель** — объединение всех подходов
+
+### 📊 Ключевые особенности
+- ✅ Обработка **2+ миллионов взаимодействий** через PySpark
+- ✅ **4 различные модели** для сравнения в рамках ВКР
+- ✅ **Cold Start** через Steam API для новых пользователей
+- ✅ **Streamlit веб-интерфейс** с визуализацией
+- ✅ Поддержка **vanity URL** Steam (не только SteamID64)
+
+---
+
+## 🏗️ Архитектура системы
+
+```text
+[ STEAM API ]
+      │
+      ▼
+[ 1. СБОР ДАННЫХ ] ───────── steam_scraper/ (users, games, details)
+      │
+      ▼
+[ 2. ПРЕДОБРАБОТКА ] ─────── PySpark: steam_db.py (очистка, нормализация, merge)
+      │
+      ▼
+[ 3. АНАЛИЗ ДАННЫХ ] ─────── Jupyter: steam.ipynb (TF-IDF, признаки, статистика)
+      │
+      ▼
+[ 4. ОБУЧЕНИЕ МОДЕЛЕЙ ] ──── Content-Based │ PMF (Cornac) │ NeuMF (Cornac) │ LightGCN (PyTorch)
+      │
+      ▼
+[ 5. ВЕБ-ПРИЛОЖЕНИЕ ] ────── Streamlit: app.py + рекомендация.py (инференс)
