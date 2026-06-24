@@ -83,23 +83,23 @@ Steam API
 ```
 steam_recommender_system/
 │
-├── 1. data_collection/
+├── Сбор_данных/
 │   ├── steam_scraper/
 │   │   ├── users_scraper.py
 │   │   ├── games_scraper.py
 │   │   └── details_scraper.py
 │   └── main.py
 │
-├── 2. data_processing/
+├── Обработка_данных/
 │   └── steam_db.py
 │
-├── 3. data_analysis/
+├── Анализ_данных/
 │   ├── steam.ipynb
 │   ├── steam_db.py
 │   └── db/
 │       └── final_dataset_*.parquet
 │
-├── 4. model/
+├── Модель/
 │   ├── content_based_filtering.py
 │   ├── train_cornac_models.py
 │   ├── train_lightgcn.py
@@ -107,7 +107,7 @@ steam_recommender_system/
 │   ├── recbole_data/
 │   └── saved/
 │
-├── 5. predictions/
+├── Предсказания/
 │   ├── recommender.py
 │   └── recommender_system/
 │
@@ -187,7 +187,7 @@ python -c "import pyspark, torch, cornac, streamlit; print('✅ OK')"
 ### 📊 Шаг 1: Сбор данных (опционально)
 
 ```bash
-python "1. data_collection/main.py"
+python " data_collection/main.py"
 ```
 
 > ⚠️ Сбор данных занимает несколько часов. Готовый датасет уже включён в репозиторий.
@@ -195,25 +195,18 @@ python "1. data_collection/main.py"
 ### 🔧 Шаг 2: Предобработка данных
 
 ```bash
-python "2. data_processing/steam_db.py"
+python " data_processing/steam_db.py"
 ```
 
 ### 📈 Шаг 3: Анализ данных
 
-Откройте `3. data_analysis/steam.ipynb` в Jupyter и выполните все ячейки.
+Откройте ` data_analysis/steam.ipynb` в Jupyter и выполните все ячейки.
 
 ### 🧠 Шаг 4: Обучение моделей
 
 ```bash
-# Модель 1: Content-Based
-python "4. model/content_based_filtering.py"
-
-# Модели 2-4: PMF, NeuMF, BPR (через Cornac)
-python "4. model/train_cornac_models.py"
-
-# Модель 5: LightGCN (опционально)
-python "4. model/train_lightgcn.py"
-```
+# Модель : Content-Based
+python " model/content_based_filtering.py"
 
 ### 🌐 Шаг 5: Запуск веб-приложения
 
