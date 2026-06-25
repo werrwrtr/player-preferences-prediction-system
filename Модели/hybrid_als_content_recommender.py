@@ -1,18 +1,4 @@
-# ==========================================================
-# HYBRID RECOMMENDER EVALUATION (70/15/15 SPLIT) - FIXED
-# Steam dataset
-#
-# Fixes included:
-# - sets PYSPARK_PYTHON/PYSPARK_DRIVER_PYTHON before importing pyspark
-# - avoids toPandas() on the full dataset
-# - per-user 70/15/15 split done in Spark
-# - content profile bug fixed
-# - robust ALS user-id lookup
-# - consistent function signatures
-# - evaluates Content-only / ALS-only / Hybrid on validation and test
-# - hybrid = ALS + Content + Popularity rerank
-# - saves top-10 hybrid recommendations and metadata
-# ==========================================================
+
 
 import os
 import sys
