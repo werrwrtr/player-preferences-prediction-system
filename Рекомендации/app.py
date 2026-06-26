@@ -52,7 +52,7 @@ if not os.path.exists(base_model_dir) or not os.path.exists(os.path.join(base_mo
 base_db_dir = os.path.join(base_model_dir, 'db')
 
 # Steam API ключ
-STEAM_API_KEY = 'E01C1D45F4F9972DA8095EB983EEAD23'
+STEAM_API_KEY = '*'
 
 # ==============================================================================
 # 2. STEAM API ФУНКЦИИ
